@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root "movies#index"
 
   # CREATE
-  post "/movies" =>   "movies#create", as: :movies
-  get "/movies/new" =>  "movies#new" , as: :new_movie
+  post "/movies" =>   "movies#create", as: :movies #movies url and movie path
+  get "/movies/new" =>  "movies#new" , as: :new_movie #new_movie url and path
           
   # READ
   get "/movies" =>   "movies#index" 
