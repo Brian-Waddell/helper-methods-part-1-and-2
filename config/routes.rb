@@ -3,20 +3,22 @@ Rails.application.routes.draw do
 
   # Routes for the Movie resource:
 
+  root "movies#index"
+
   # CREATE
-  post "/movies" =>  controller:  "movies", action: "create" 
-  get "/movies/new" => controller: "movies", action: "new" 
+  post "/movies" =>   "movies#create" 
+  get "/movies/new" =>  "movies#new" 
           
   # READ
-  ge"/movies" =>  controller: "movies", action: "index" 
-  get"/movies/:id" =>  controller: "movies", action:  "show" 
+  ge"/movies" =>   "movies#index" 
+  get"/movies/:id" =>  "movies#show" 
   
   # UPDATE
-  patch "/movies/:id" => controller: "movies", action: "update" 
-  get "/movies/:id/edit" =>  controller:  "movies", action:  "edit" 
+  patch "/movies/:id" =>  "movies#update" 
+  get "/movies/:id/edit" =>  "movies#edit" 
   
   # DELETE
-  delete "/movies/:id" => controller: "movies", action: "destroy"
+  delete "/movies/:id" =>  "movies#destroy"
 
   #------------------------------
 end
