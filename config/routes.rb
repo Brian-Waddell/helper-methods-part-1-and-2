@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   root "movies#index"
 
   # CREATE
-  post "/movies" =>   "movies#create", as: :movies #movies url and movie path
+  post "/movies" =>   "movies#create", as: :movies #movies url and movies path
   get "/movies/new" =>  "movies#new" , as: :new_movie #new_movie url and path
           
   # READ
   get "/movies" =>   "movies#index" 
-  get"/movies/:id" =>  "movies#show", as: :details 
+  get"/movies/:id" =>  "movies#show", as: :movie
   
   # UPDATE
   patch "/movies/:id" =>  "movies#update" 
