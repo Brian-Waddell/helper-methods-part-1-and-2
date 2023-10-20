@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   def index
     matching_movies = Movie.all
 
-    @list_of_movies = matching_movies.order({ :created_at => :desc })
+    @movies = matching_movies.order(created_at: :desc )
 
     respond_to do |format|
       format.json do
@@ -21,18 +21,20 @@ class MoviesController < ApplicationController
   end
 
   def show
-    the_id = params.fetch(:id)
+    #the_id = params.fetch(:id)
 
-    matching_movies = Movie.where( id: the_id )
+    #matching_movies = Movie.where( id: the_id ) (..find_by and find knows to search within the id col.)
 
-    @the_movie = matching_movies.first
+    #@the_movie = matching_movies.first (find eliminates the need for .first automatically pulls the first record)
+
+    @move = Movie.find(params.fetch(:id))
 
   end
 
   def create
     @the_movie = Movie.new
-    @the_movie.title = params.fetch("query_title")
-    @the_movie.description = params.fetch("query_description")
+    @the_movie.title = params.fetch(:title)
+    @the_movie.description = params.fetch(:description)
 
     if @the_movie.valid?
       @the_movie.save
