@@ -1,6 +1,10 @@
 <h1>
   List of all movies
 </h1>
+<form>
+  <input name = "zebra">
+  <button> Submit </button>
+  </form> 
 <div>
 
  <%= link_to "Add a new movie", new_movie_path %> 
@@ -36,7 +40,7 @@
     </th>
   </tr>
 
-  <% @list_of_movies.each do |a_movie| %>
+  <% @movies.each do |a_movie| %>
   <tr>
     <td>
       <%= a_movie.id %>
